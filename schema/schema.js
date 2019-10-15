@@ -17,7 +17,7 @@ const MovieListType = new GraphQLObjectType({
     Title: { type: GraphQLString },
     Year: { type: GraphQLString },
     Poster: { type: GraphQLString },
-    imdbID: { type: GraphQLString }
+    imdbID: { type: GraphQLString },
   })
 });
 
@@ -69,7 +69,6 @@ const RootQuery = new GraphQLObjectType({
         return axios
           .get(`http://www.omdbapi.com/?apikey=3b218ed3&i=${args.imdbID}`)
           .then(res => {
-            console.log("data!", res.data);
             return res.data;
           });
       }
